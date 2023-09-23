@@ -1,0 +1,15 @@
+<h3>ngFor</h3>
+<div class="ngFor task">
+  <ul>
+    <li *ngFor="let item of testItems">{{ item.name }} - {{ item.value }}</li>
+  </ul>
+</div>
+<h3>Date Pipe</h3>
+<div class="date task">
+  <p>{{ testDate | date : "dd/MM/yyyy" }}</p>
+</div>
+<h3>Custom Pipe</h3>
+<div class="pipe task">
+  <p>Value before using addFive pipe - {{ testNumber }}</p>
+  <p>Value after using addFive pipe - {{ testNumber | addFive }}</p>
+</div>
