@@ -1,0 +1,11 @@
+<div class="nav">
+  <a routerLink="about">About</a>
+  <br />
+  <a routerLink="contact">Contact</a>
+</div>
+<div class="items">
+  <h3>Item list</h3>
+  <a *ngFor="let item of items" [routerLink]="['/item', item.id]">
+    <p>{{ item.name }}</p>
+  </a>
+</div>
