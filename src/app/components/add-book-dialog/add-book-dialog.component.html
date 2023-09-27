@@ -1,1 +1,46 @@
-<p>add-book-dialog works!</p>
+<h1 mat-dialog-title>Новая книга</h1>
+<div mat-dialog-content>
+  <form class="form" [formGroup]="bookForm">
+    <mat-form-field
+      ><mat-label>Название</mat-label>
+      <input
+        matInput
+        class="form-control"
+        name="title"
+        formControlName="title"
+      />
+      <div
+        class="alert alert-danger"
+        *ngIf="
+          bookForm.controls['title'].invalid &&
+          bookForm.controls['title'].touched
+        "
+      >
+        Не указано имя
+      </div></mat-form-field
+    >
+
+    <mat-form-field
+      ><mat-label>Автор</mat-label>
+      <input
+        matInput
+        class="form-control"
+        name="author"
+        formControlName="author"
+      />
+      <div
+        class="alert alert-danger"
+        *ngIf="
+          bookForm.controls['author'].invalid &&
+          bookForm.controls['author'].touched
+        "
+      >
+        Не указан автор
+      </div></mat-form-field
+    >
+
+    <div class="form-group">
+      <button class="btn btn-default" (click)="onSubmit()">Отправить</button>
+    </div>
+  </form>
+</div>

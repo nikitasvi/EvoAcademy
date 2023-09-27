@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { IBook } from './interfaces/book.interface';
 import { BookService } from './services/book.service';
 import { MatDialog } from '@angular/material/dialog';
 import { AddBookDialogComponent } from './components/add-book-dialog/add-book-dialog.component';
+import { Book } from './models/book.model';
 
 @Component({
   selector: 'app-root',
@@ -11,13 +11,15 @@ import { AddBookDialogComponent } from './components/add-book-dialog/add-book-di
 })
 export class AppComponent {
   public displayedColumns: string[] = ['number', 'name', 'author'];
-  public books: IBook[];
+  public books: Book[] = [];
 
   constructor(
     private readonly bookService: BookService,
-    private readonly dialog: MatDialog
+    private readonly dialog: MatDialog,
   ) {
-    this.books = this.bookService.getBooks();
+    this.bookService.getBooks().subscribe(books => {
+      this.books = books;
+    });
   }
 
   public addBook() {

@@ -1,29 +1,41 @@
 import { Injectable } from '@angular/core';
-import { IBook } from '../interfaces/book.interface';
+import { Book } from '../models/book.model';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class BookService {
-  private books: IBook[] = [
-    {
-      number: 1,
-      name: 'Dva kapitana',
-      author: 'Kaverin Vineamin Aleksandrovich',
-    },
-    {
-      number: 2,
-      name: 'Kapitanskaya dochka',
-      author: 'Pushkin Aleksandr Sergeevich',
-    },
-    {
-      number: 3,
-      name: 'Revizor',
-      author: 'Gogol Nikolai Vasilevich',
-    },
+  private books: Array<Book> = [
+    new Book(
+      1,
+      'Два капитана',
+      'Каверин Винеамин Александрович',
+    ),
+    new Book(
+      2,
+      'Капитанская дочка',
+      'Пушкин Александр Сергеевич',
+    ),
+    new Book(
+      3,
+      'Ревизор',
+      'Гоголь Николай Васильевич',
+    ),
   ];
 
-  public getBooks(): IBook[] {
-    return this.books;
+  private booksSubject = new BehaviorSubject<Book[]>(this.books);
+
+  public getBooks(): Observable<Book[]> {
+    return this.booksSubject.asObservable();
+  }
+
+  public addBook(book: Book): void {
+    this.books.push(book);
+    this.booksSubject.next([...this.books]);
+  }
+
+  public getLength(): number {
+    return this.books.length;
   }
 }
