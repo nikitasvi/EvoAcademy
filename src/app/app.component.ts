@@ -15,9 +15,9 @@ export class AppComponent {
 
   constructor(
     private readonly bookService: BookService,
-    private readonly dialog: MatDialog,
+    private readonly dialog: MatDialog
   ) {
-    this.bookService.getBooks().subscribe(books => {
+    this.bookService.getBooks().subscribe((books) => {
       this.books = books;
     });
   }
@@ -27,7 +27,6 @@ export class AppComponent {
       width: '700px',
       maxWidth: '100vw',
       disableClose: false,
-      closeOnNavigation: true,
     });
   }
 }

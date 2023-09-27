@@ -1,0 +1,7 @@
+<div *ngIf="errors">
+  <div *ngIf="errors['required']">Поле обязательно для заполнения.</div>
+  <div *ngIf="errors['invalidCharacters']">Поле должно содержать только русские буквы.</div>
+  <div *ngIf="errors['containsNumbers']">Поле не должно содержать цифры.</div>
+  <div *ngIf="errors['containsSpaces']">Поле не должно содержать пробелы.</div>
+  <div *ngIf="errors['containsSpecialCharacters']">Поле не должно содержать специальные символы.</div>
+</div>

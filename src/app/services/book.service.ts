@@ -7,26 +7,14 @@ import { BehaviorSubject, Observable } from 'rxjs';
 })
 export class BookService {
   private books: Array<Book> = [
-    new Book(
-      1,
-      'Два капитана',
-      'Каверин Винеамин Александрович',
-    ),
-    new Book(
-      2,
-      'Капитанская дочка',
-      'Пушкин Александр Сергеевич',
-    ),
-    new Book(
-      3,
-      'Ревизор',
-      'Гоголь Николай Васильевич',
-    ),
+    new Book(1, 'Два капитана', 'Каверин Винеамин Александрович'),
+    new Book(2, 'Капитанская дочка', 'Пушкин Александр Сергеевич'),
+    new Book(3, 'Ревизор', 'Гоголь Николай Васильевич'),
   ];
 
   private booksSubject = new BehaviorSubject<Book[]>(this.books);
 
-  public getBooks(): Observable<Book[]> {
+  public getBooks(): Observable<Array<Book>> {
     return this.booksSubject.asObservable();
   }
 
