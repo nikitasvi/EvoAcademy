@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="column">
+    <h2>Sequential Numbers</h2>
+    <mat-list>
+      <mat-list-item *ngFor="let number of sequentialNumbers">{{ number }}</mat-list-item>
+    </mat-list>
+    <button mat-raised-button color="primary" (click)="toggleSequential()">Toggle</button>
+  </div>
+
+  <div class="column">
+    <h2>Random Numbers</h2>
+    <mat-list>
+      <mat-list-item *ngFor="let number of randomNumbers">{{ number }}</mat-list-item>
+    </mat-list>
+    <button mat-raised-button color="primary" (click)="toggleRandom()">Toggle</button>
+  </div>
+</div>
