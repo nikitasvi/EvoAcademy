@@ -1,0 +1,23 @@
+<div class="button-list">
+  <button mat-flat-button color="primary" (click)="getPosts()">
+    Get posts
+  </button>
+  <button mat-flat-button color="primary" (click)="getComments()">
+    Get comments
+  </button>
+  <button mat-flat-button color="accent" (click)="createPost()">
+    Create empty post
+  </button>
+  <button mat-flat-button color="warn" (click)="getPost()">
+    GET post with errors
+  </button>
+  <button mat-flat-button color="primary" (click)="getPostsWithHeaders()">
+    Text format response
+  </button>
+  <button mat-stroked-button color="warn" (click)="deletePost()">
+    Delete post
+  </button>
+  <button mat-flat-button color="primary" routerLink="/post">resolve</button>
+</div>
+
+<router-outlet></router-outlet>
