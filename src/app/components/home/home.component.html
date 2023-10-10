@@ -1,0 +1,23 @@
+<nav>
+  <mat-toolbar color="raised">
+    <button mat-button [matMenuTriggerFor]="mymenu">
+      <button mat-icon-button><mat-icon>menu</mat-icon></button>
+    </button>
+    <mat-menu #mymenu="matMenu">
+      <button mat-menu-item (click)="roleService.setUserRole('user')">
+        Сменить роль на пользователя
+      </button>
+      <button mat-menu-item (click)="roleService.setUserRole('admin')">
+        Сменить роль на администратора
+      </button>
+    </mat-menu>
+    <span>Текущая роль: {{ roleService.getUserRole() }}</span>
+    <span class="toolbar-item-spacer"></span>
+  </mat-toolbar>
+</nav>
+<h1>Посты</h1>
+<div class="posts">
+  <div *ngFor="let post of posts">
+    <app-post [post]="post"></app-post>
+  </div>
+</div>

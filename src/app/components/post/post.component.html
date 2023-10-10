@@ -1,0 +1,13 @@
+<mat-card class="post">
+  <mat-card-header>
+    <mat-card-title>Post id: {{ post.id }}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <p><b>Title:</b> {{ post.title }}</p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button [routerLink]="['post', post.id]" mat-raised-button color="primary">
+      Редактировать
+    </button>
+  </mat-card-actions>
+</mat-card>
