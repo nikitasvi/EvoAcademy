@@ -1,0 +1,9 @@
+<div>
+  <input [(ngModel)]="newTodo" placeholder="Enter a new todo" />
+  <button (click)="addTodo()">Add Todo</button>
+</div>
+
+<div *ngFor="let todo of todos$ | async">
+  {{ todo }}
+  <button (click)="removeTodo(todo)">Remove</button>
+</div>

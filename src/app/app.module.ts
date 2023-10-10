@@ -1,12 +1,14 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { NgxsModule } from '@ngxs/store';
+import { TodoState } from './store/todo.state';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, FormsModule, NgxsModule.forRoot([TodoState])],
   providers: [],
   bootstrap: [AppComponent],
 })
